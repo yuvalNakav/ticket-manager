@@ -1,25 +1,20 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useEffect, useState } from "react";
 
+import "./App.css";
+import Ticket from "./components/Ticket";
+import network from "./network";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [tickets, setTickets] = useState([]);
+  network.get("/api/tickets").then((res) => {
+    setTickets(res.data.map((ticket) => ticket));
+  });
+  return tickets.map((ticket, i) => {
+    return (
+      <div>
+        <Ticket ticket={ticket} key={i} />
+      </div>
+    );
+  });
 }
 
 export default App;

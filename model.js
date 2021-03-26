@@ -31,5 +31,5 @@ const TicketSchema = new mongoose.Schema({
   creationTime: { type: Date, default: Date.now },
   labels: Array,
 });
-const Ticket = new mongoose.model(`Ticket`, TicketSchema);
-module.exports = Ticket;
+const TicketModel = new mongoose.model(`Ticket`, TicketSchema);
+module.exports = TicketModel;
