@@ -23,7 +23,7 @@ function Ticket({ ticket, i, hideTicket }) {
   };
 
   return (
-    <div className="ticket-wraper" key={i}>
+    <div className="ticket-wrapper" key={i}>
       <button
         className="hideTicketButton"
         onClick={() => {
@@ -44,8 +44,10 @@ function Ticket({ ticket, i, hideTicket }) {
         })}
       </div>
       <div className="ticket-details">
-        <span>{ticket.userEmail} </span>
-        <span>{new Date(ticket.creationTime).toLocaleString("en-GB")}</span>
+        <span className="email">{ticket.userEmail} </span>
+        <span className="date">
+          {new Date(ticket.creationTime).toLocaleString("en-GB")}
+        </span>
       </div>
       <button
         className="check"
@@ -53,9 +55,8 @@ function Ticket({ ticket, i, hideTicket }) {
           checkTicket(ticket);
         }}
       >
-        {checked ? "un-check" : "check"}
+        {checked ? "un-check X" : "check ✔"}
       </button>
-      <span>{checked ? "✔" : "X"}</span>
     </div>
   );
 }

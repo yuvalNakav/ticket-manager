@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Ticket from "./components/Ticket";
-import SearchInput from "./components/SearchInput";
 import network from "./network";
 function App() {
   const [tickets, setTickets] = useState([]);
@@ -37,27 +36,29 @@ function App() {
   };
   return (
     <div className="app">
-      <input id="searchInput" onChange={searchTickets}></input>
-      <p className="hideTicketsCounter">
-        showing {tickets.length} results ({hidden.length} hidden)
-      </p>
-      <button
-        id="restoreHideTickets"
-        onClick={() => {
-          restoreTickets();
-        }}
-      >
-        restore
-      </button>
+      <h1 className="headline">Ticket Manager</h1>
+      <input
+        id="searchInput"
+        onChange={searchTickets}
+        placeholder="enter text here"
+      ></input>
+      <div className="head-wrapper">
+        <p className="hideTicketsCounter">
+          showing {tickets.length} results ({hidden.length} hidden)
+        </p>
+        <button
+          id="restoreHideTickets"
+          onClick={() => {
+            restoreTickets();
+          }}
+        >
+          restore
+        </button>
+      </div>
       {tickets.map((ticket, i) => {
         return (
           <div>
-            <Ticket
-              ticket={ticket}
-              key={i}
-              hideTicket={hideTicket}
-              // hidden={hidden}
-            />
+            <Ticket ticket={ticket} key={i} hideTicket={hideTicket} />
           </div>
         );
       })}
