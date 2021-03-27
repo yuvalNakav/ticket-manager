@@ -8,13 +8,19 @@ function App() {
   network.get("/api/tickets").then((res) => {
     setTickets(res.data.map((ticket) => ticket));
   });
-  return tickets.map((ticket, i) => {
-    return (
-      <div>
-        <Ticket ticket={ticket} key={i} />
-      </div>
-    );
-  });
+  return (
+    <div className="app">
+      <p className="hideTicketsCounter">counter</p>
+      <button id="restoreHideTickets">restore</button>
+      {tickets.map((ticket, i) => {
+        return (
+          <div>
+            <Ticket ticket={ticket} key={i} />
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default App;

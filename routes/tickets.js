@@ -21,7 +21,7 @@ tickets.get("/", async (req, res) => {
 });
 tickets.patch("/:ticketId/done", async (req, res) => {
   const ticketId = req.params.ticketId;
-  console.log(ticketId);
+  // console.log(ticketId);
   TicketModel.findOneAndUpdate(
     { _id: ticketId },
     { done: true },
