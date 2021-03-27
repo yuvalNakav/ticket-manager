@@ -23,7 +23,11 @@ function Ticket({ ticket, i }) {
       <p className="ticket-content">{ticket.content}</p>
       <div className="ticket-labels">
         {ticket.labels.map((label) => {
-          return <span className="label">{label} </span>;
+          return (
+            <span className="label" id={label}>
+              {label}{" "}
+            </span>
+          );
         })}
       </div>
       <div className="ticket-details">
