@@ -23,7 +23,7 @@ function Ticket({ ticket, i, hideTicket }) {
   };
 
   return (
-    <div className="ticket-wrapper" key={i}>
+    <div className="ticket" key={i}>
       <button
         className="hideTicketButton"
         onClick={() => {
@@ -35,13 +35,14 @@ function Ticket({ ticket, i, hideTicket }) {
       <h1 className="ticket-title">{ticket.title}</h1>
       <p className="ticket-content">{ticket.content}</p>
       <div className="ticket-labels">
-        {ticket.labels.map((label) => {
-          return (
-            <span className="label" id={label}>
-              {label}{" "}
-            </span>
-          );
-        })}
+        {ticket.label &&
+          ticket.labels.map((label) => {
+            return (
+              <span className="label" id={label}>
+                {label}{" "}
+              </span>
+            );
+          })}
       </div>
       <div className="ticket-details">
         <span className="email">{ticket.userEmail} </span>

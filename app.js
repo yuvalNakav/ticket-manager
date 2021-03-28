@@ -9,13 +9,6 @@ const mongoose = require("mongoose");
 // const tickets = Router();
 const TicketModel = require("./model");
 
-app.get("/", (req, res) => {
-  res.redirect("/api/tickets");
-});
-app.get("/api", (req, res) => {
-  res.redirect("/api/tickets");
-});
-
 app.get("/api/tickets", async (req, res) => {
   const searchText = req.query;
 
