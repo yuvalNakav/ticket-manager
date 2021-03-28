@@ -3,8 +3,8 @@ require("dotenv").config();
 const env = process.env.NODE_ENV || "production";
 const MONGO_URI =
   env === "test" ? process.env.TEST_MONGO_URI : process.env.MONGO_URI;
-const PORT = process.env.PORT || 8080;
-const app = require("./app");
+// const PORT = process.env.PORT || 8080;
+// const app = require("./app");
 
 mongoose
   .connect(MONGO_URI, {
@@ -15,9 +15,9 @@ mongoose
   })
   .then(() => {
     console.log(`connected to MongoDB - ${env}`);
-    app.listen(PORT, () =>
-      console.log(`app listening at http://localhost:${PORT}`)
-    );
+    // app.listen(PORT, () =>
+    //   console.log(`app listening at http://localhost:${PORT}`)
+    // );
   })
   .catch((error) => {
     console.log("error connecting to MongoDB:", error.message);
