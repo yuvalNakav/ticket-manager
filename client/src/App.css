@@ -83,7 +83,7 @@ button {
 #searchInput::placeholder {
   color: rgba(255, 255, 255, 0.521);
 }
-#hideTicketsCounter {
+#show-line {
   display: block;
 }
 #restoreHideTickets {
