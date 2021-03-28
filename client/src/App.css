@@ -24,7 +24,7 @@ button {
 }
 .ticket-title,
 .ticket-content,
-.ticket-labels,
+/* .ticket-labels, */
 .ticket-details {
   margin-left: 1rem;
 }

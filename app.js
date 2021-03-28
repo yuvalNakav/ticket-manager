@@ -3,15 +3,12 @@ const app = express();
 
 app.use(express.static("client/build"));
 
-// const { Router } = require("express");
 const MongoDB = require("mongodb");
 const mongoose = require("mongoose");
-// const tickets = Router();
 const TicketModel = require("./model");
 
 app.get("/api/tickets", async (req, res) => {
   const searchText = req.query;
-
   TicketModel.find(
     { title: new RegExp(searchText.title, "i") },
     (err, userArr) => {
@@ -21,9 +18,9 @@ app.get("/api/tickets", async (req, res) => {
     }
   );
 });
+
 app.patch("/api/tickets/:ticketId/done", async (req, res) => {
   const ticketId = req.params.ticketId;
-  // console.log(ticketId);
   TicketModel.findOneAndUpdate(
     { _id: ticketId },
     { done: true },

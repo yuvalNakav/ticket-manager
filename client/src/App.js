@@ -43,9 +43,6 @@ function App() {
         placeholder="enter text here"
       ></input>
       <div className="head-wrapper">
-        {/* <p id = "show-line"><p/>
-          showing {tickets.length} results 
-          (<span id="hideTicketsCounter">{hidden.length}<span/> hidden) */}
         <p id="show-line">
           showing {tickets.length} results(
           <span id="hideTicketsCounter">{hidden.length}</span> hidden)
