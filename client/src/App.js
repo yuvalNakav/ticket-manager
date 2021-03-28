@@ -43,9 +43,11 @@ function App() {
         placeholder="enter text here"
       ></input>
       <div className="head-wrapper">
-        <p className="hideTicketsCounter">
-          showing {tickets.length} results ({hidden.length} hidden)
+        <p id="show-line">
+          showing {tickets.length} results(
+          <span id="hideTicketsCounter">{hidden.length}</span> hidden)
         </p>
+
         <button
           id="restoreHideTickets"
           onClick={() => {
