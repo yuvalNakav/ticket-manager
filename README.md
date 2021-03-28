@@ -2,9 +2,9 @@
 
 this is a Ticket Manager project.
 you can watch all your open tickets in here.
-![pic1](./readme-files\ticketScreenShot.png)
+![pic1](./readme-files/ticketScreenShot.png)
 
-## demonstration ![gif](./readme-files\ticketGif.gif)
+## demonstration ![gif](./readme-files/ticketGif.gif)
 
 ## usage
 
