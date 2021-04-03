@@ -12,7 +12,6 @@ function App() {
   };
   useEffect(() => {
     getTickets();
-    console.log("hi");
   }, []);
   const hideTicket = (ticket) => {
     hidden.push(ticket);
@@ -29,7 +28,7 @@ function App() {
   };
   const searchTickets = async (e) => {
     const input = e.target.value;
-    const query = `/api/tickets?title=${input}`;
+    const query = `/api/tickets?searchText=${input}`;
     const newTickets = await network.get(query).then((res) => {
       setTickets(res.data.map((ticket) => ticket));
     });

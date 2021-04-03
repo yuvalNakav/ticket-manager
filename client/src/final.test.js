@@ -44,7 +44,7 @@ describe(projectName, () => {
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: false,
-      slowMo: 200,
+      slowMo: 100,
     });
     page = await browser.newPage();
     useNock(page, ["http://localhost:3000/api"]);

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import network from "../network";
 function Ticket({ ticket, i, hideTicket }) {
-  const [checked, setChecked] = useState(false);
-  const checkTicket = (ticket) => {
+  const [checked, setChecked] = useState(ticket.done);
+
+  const checkTicket = async (ticket) => {
     if (!ticket.done) {
       try {
-        network.patch(`/api/tickets/${ticket._id}/done`);
+        const res = await network.patch(`/api/tickets/${ticket._id}/done`);
         setChecked(true);
         ticket.done = !ticket.done;
       } catch ({ massage }) {
@@ -13,7 +14,7 @@ function Ticket({ ticket, i, hideTicket }) {
       }
     } else {
       try {
-        network.patch(`/api/tickets/${ticket._id}/undone`);
+        const res = await network.patch(`/api/tickets/${ticket._id}/undone`);
         setChecked(false);
         ticket.done = !ticket.done;
       } catch ({ massage }) {

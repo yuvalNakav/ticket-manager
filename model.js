@@ -15,9 +15,6 @@ mongoose
   })
   .then(() => {
     console.log(`connected to MongoDB - ${env}`);
-    // app.listen(PORT, () =>
-    //   console.log(`app listening at http://localhost:${PORT}`)
-    // );
   })
   .catch((error) => {
     console.log("error connecting to MongoDB:", error.message);
@@ -29,7 +26,7 @@ const TicketSchema = new mongoose.Schema({
   userEmail: String,
   done: { type: Boolean, default: false },
   creationTime: { type: Date, default: Date.now },
-  labels: Array,
+  labels: [String],
 });
 const TicketModel = new mongoose.model(`Ticket`, TicketSchema);
 module.exports = TicketModel;
