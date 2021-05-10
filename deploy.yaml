@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber4s
+  labels:
+    app: cyberapp
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cyberapp
+  template:
+    metadata:
+      labels:
+        app: cyberapp
+        version: "1.0"
+    spec:
+      containers:
+        - name: cyber4s
+          image: tal2k4xj/cyber4s:1
+          ports:
+            - name: http-server
+              containerPort: 8080
